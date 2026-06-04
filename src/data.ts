@@ -408,8 +408,133 @@ export const CURRICULUM_MODULES: Module[] = [
         phrasePortuguese: "Isto é um livro e isto é uma maçã"
       }
     ]
+  },
+  {
+    id: "modulo_16",
+    title: "MÓDULO 16 – MESES E CALENDÁRIO",
+    description: "Domine os meses de Janeiro a Dezembro, os dias da semana, as quatro estações e as datas importantes.",
+    badgeId: "badge_calendario",
+    xpValue: 120,
+    lessons: [
+      {
+        id: "l_16_1",
+        moduleId: "modulo_16",
+        title: "Lição 1: Meses do Ano",
+        description: "Os 12 meses do ano com pronúncia e escrita clássica.",
+        order: 1,
+        portuguese: "Meses de Jan a Dez",
+        arabic: "يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر، ديسمبر",
+        pronunciation: "Yanayir, Fibrayir, Maris, Abril, Mayu, Yunyu, Yulyu, Aghustus, Sibtambar, Uktubar, Nufambar, Disambar",
+        phraseArabic: "نحن في شهر ديسمبر الآن",
+        phrasePronunciation: "Nahnu fi shahri Disambar al-an",
+        phrasePortuguese: "Nós estamos no mês de dezembro agora"
+      },
+      {
+        id: "l_16_2",
+        moduleId: "modulo_16",
+        title: "Lição 2: Dias da Semana e Estações",
+        description: "Aprenda a planejar seus dias e falar sobre o clima.",
+        order: 2,
+        portuguese: "Domingo, Segunda, Terça, Quarta / Primavera, Verão",
+        arabic: "الأحد، الاثنين، الثلاثاء، الأربعاء، الخميس، الجمعة، السبت / الربيع، الصيف",
+        pronunciation: "Al-Ahad, Al-Ithnayn, Al-Thulatha', Al-Arbi'a', Al-Khamis, Al-Jumu'ah, Al-Sabt / Al-Rabi', Al-Sayf",
+        phraseArabic: "الجمعة هو يوم مبارك",
+        phrasePronunciation: "Al-jumu'ah huwa yawmun mubarak",
+        phrasePortuguese: "Sexta-feira é um dia abençoado"
+      }
+    ]
+  },
+  {
+    id: "modulo_17",
+    title: "MÓDULO 17 – FERIADOS E EVENTOS",
+    description: "Entenda os grandes feriados islâmicos e nacionais, como o Ramadan, Eid al-Fitr, Eid al-Adha e de relevância global.",
+    badgeId: "badge_feriados",
+    xpValue: 140,
+    lessons: [
+      {
+        id: "l_17_1",
+        moduleId: "modulo_17",
+        title: "Lição 1: Festividades e Celebrações",
+        description: "Páscoa, Independência, Ramadan, Eid e Ano Novo com contexto cultural.",
+        order: 1,
+        portuguese: "Eid al-Fitr, Eid al-Adha, Ramadan",
+        arabic: "عيد الفطر، عيد الأضحى، رمضان، المولد النبوي، عيد الفصح",
+        pronunciation: "'Eid al-Fitr, 'Eid al-Adha, Ramadan, Al-Mawlid an-Nabawi, 'Eid al-Fish",
+        phraseArabic: "رمضان هو شهر الصوم والرحمة",
+        phrasePronunciation: "Ramadan huwa shahru as-sawm war-rahmah",
+        phrasePortuguese: "O Ramadã é o mês de jejum e de compaixão"
+      }
+    ]
+  },
+  {
+    id: "modulo_18",
+    title: "MÓDULO 18 – LOCAIS E CIDADES",
+    description: "Explore termos e nomes de locais urbanos essenciais. Casa, Mesquita, Escola e mais de 300 locais clássicos.",
+    badgeId: "badge_locais",
+    xpValue: 150,
+    lessons: [
+      {
+        id: "l_18_1",
+        moduleId: "modulo_18",
+        title: "Lição 1: Principais Pontos de Interesse",
+        description: "Casa, Escola, Hospital, Aeroporto, Hotel, Restaurante, Banco, Mesquita e Shopping.",
+        order: 1,
+        portuguese: "Casa, Escola, Hospital, Aeroporto, Hotel, Mercado, Banco, Mesquita, Shopping",
+        arabic: "منزل، مدرسة، مستشفى، مطار، فندق، مطعم، سوق، بنك، مسجد، مركز تجاري",
+        pronunciation: "Manzil, Madrasa, Mustashfa, Matar, Funduq, Mat'am, Suq, Bank, Masjid, Markaz Tijari",
+        phraseArabic: "المسجد قريب جداً من المدرسة",
+        phrasePronunciation: "Al-masjidu qaribun jiddan min al-madrasah",
+        phrasePortuguese: "A mesquita é muito perto da escola"
+      }
+    ]
+  },
+  {
+    id: "modulo_19",
+    title: "MÓDULO 19 – PROFISSÕES DO DIA A DIA",
+    description: "Fale sobre sua carreira, apresente seu ofício e conheça mais de 200 profissões essenciais.",
+    badgeId: "badge_profissoes",
+    xpValue: 130,
+    lessons: [
+      {
+        id: "l_19_1",
+        moduleId: "modulo_19",
+        title: "Lição 1: Profissões e Ofícios",
+        description: "Vocabulário de Professor, Médico, Engenheiro, Programador, Empresário e mais.",
+        order: 1,
+        portuguese: "Professor, Médico, Engenheiro, Programador, Policial, Motorista, Advogado, Enfermeiro",
+        arabic: "معلم، طبيب، مهندس، مبرمج، شرطي، سائق، محامي، ممرض",
+        pronunciation: "Mu'allim, Tabib, Muhandis, Mubarmij, Shurti, Saiq, Muhami, Mumarrid",
+        phraseArabic: "يعمل الطبيب في المستشفى لمساعدة الناس",
+        phrasePronunciation: "Ya'malu at-tabibu fi al-mustashfa li-musa'adat an-nas",
+        phrasePortuguese: "O médico trabalha no hospital para ajudar as pessoas"
+      }
+    ]
+  },
+  {
+    id: "modulo_20",
+    title: "MÓDULO 20 – VIAGENS E TURISMO",
+    description: "Prepare-se para embarcar ao Oriente Médio: use termos de vistos, passaporte, hotéis e táxis.",
+    badgeId: "badge_viagens",
+    xpValue: 160,
+    lessons: [
+      {
+        id: "l_20_1",
+        moduleId: "modulo_20",
+        title: "Lição 1: Passporte, Vistos e Deslocamento",
+        description: "Peça ajuda no aeroporto, mostre o passaporte e pegue um táxi com segurança.",
+        order: 1,
+        portuguese: "Passaporte, Visto, Aeroporto, Hotel, Táxi, Compras",
+        arabic: "جواز سفر، تأشيرة، مطار، فندق، تاكسي، تسوق",
+        pronunciation: "Jawaz safar, Ta'shira, Matar, Funduq, Taxi, Tasawwuq",
+        phraseArabic: "أين يمكنني الحصول على تأشيرة دخول؟",
+        phrasePronunciation: "Ayna yumkinuni al-husul 'ala ta'shirat dukhul?",
+        phrasePortuguese: "Onde eu posso obter um visto de entrada?"
+      }
+    ]
   }
 ];
+
+export const CUSTOM_ADMIN_EXERCISES: Exercise[] = [];
 
 // Helper to acquire associated exercise questions for each lesson ID statically
 export const GET_LESSON_EXERCISES = (lessonId: string): Exercise[] => {
@@ -539,7 +664,7 @@ export const GET_LESSON_EXERCISES = (lessonId: string): Exercise[] => {
   };
 
   // Default fallback exercise array for any undocumented lesson ID
-  return exMap[lessonId] || [
+  const baseList = exMap[lessonId] || [
     {
       id: `ex_${lessonId}_fallback`,
       lessonId: lessonId,
@@ -550,6 +675,7 @@ export const GET_LESSON_EXERCISES = (lessonId: string): Exercise[] => {
       correctAnswer: "Al-lughah al-'Arabiyyah"
     }
   ];
+  return [...baseList, ...CUSTOM_ADMIN_EXERCISES.filter((ex) => ex.lessonId === lessonId)];
 };
 
 export interface BadgeDefinition {
@@ -588,6 +714,41 @@ export const BADGES_LIST: BadgeDefinition[] = [
     description: "Destrinche as cores vívidas clássicas árabe",
     emoji: "🎨",
     requirements: "Completar lições do Módulo 4"
+  },
+  {
+    id: "badge_calendario",
+    title: "Mestre do Tempo",
+    description: "Estudou o calendário, meses e estações do ano.",
+    emoji: "📅",
+    requirements: "Completar lições do Módulo 16"
+  },
+  {
+    id: "badge_feriados",
+    title: "Celebrador Devoto",
+    description: "Aprendeu sobre feriados tradicionais e religiosos de prestígio.",
+    emoji: "🌙",
+    requirements: "Completar lições do Módulo 17"
+  },
+  {
+    id: "badge_locais",
+    title: "Habitante do Oriente",
+    description: "Encontrou seu caminho explorando cidades e locais clássicos.",
+    emoji: "🗺️",
+    requirements: "Completar lições do Módulo 18"
+  },
+  {
+    id: "badge_profissoes",
+    title: "Especialista em Ofícios",
+    description: "Discorreu com maestria sobre carreiras e profissões mundanas.",
+    emoji: "💼",
+    requirements: "Completar lições do Módulo 19"
+  },
+  {
+    id: "badge_viagens",
+    title: "Navegador de Fronteiras",
+    description: "Domine passaportes, hotéis e rotas de viagens árabes.",
+    emoji: "✈️",
+    requirements: "Completar lições do Módulo 20"
   },
   {
     id: "badge_sheikh_chat",

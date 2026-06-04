@@ -29,6 +29,7 @@ interface AuthContextType {
   continueAsGuest: (customName?: string, pendingOnboarding?: UserProfile["onboarding"]) => void;
   logout: () => Promise<void>;
   addXp: (amount: number) => Promise<void>;
+  addCoins: (amount: number) => Promise<void>;
   completeLesson: (lessonId: string, moduleId: string, badgeIdToAward?: string) => Promise<void>;
   claimPremium: () => void;
   updateLocalProfileName: (newName: string) => void;
@@ -43,6 +44,7 @@ const DEFAULT_GUEST_PROFILE = (name = "Estudante"): UserProfile => ({
   name: name,
   level: 1,
   xp: 0,
+  coins: 50,
   streak: 1,
   completedLessons: [],
   badges: ["badge_passos"], // Start with Desert Scout!
@@ -116,6 +118,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           name: data.name || firebaseUser.displayName || "Aluno Árabe",
           level: data.level || 1,
           xp: data.xp || 0,
+          coins: data.coins !== undefined ? data.coins : 50,
           streak: data.streak || 1,
           lastActiveDate: data.lastActiveDate || "",
           completedLessons: data.completedLessons || [],
@@ -145,6 +148,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           name: firebaseUser.displayName || "Aluno Árabe",
           level: 1,
           xp: 0,
+          coins: 50,
           streak: 1,
           completedLessons: [],
           badges: ["badge_passos"],
@@ -160,6 +164,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           name: newProfile.name,
           level: newProfile.level,
           xp: newProfile.xp,
+          coins: newProfile.coins,
           streak: newProfile.streak,
           completedLessons: newProfile.completedLessons,
           badges: newProfile.badges,
@@ -309,6 +314,34 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
+  // Handle coins modification directly
+  const addCoins = async (amount: number) => {
+    if (!profile) return;
+    const newCoins = Math.max(0, (profile.coins || 0) + amount);
+    const nowStr = new Date().toISOString();
+    const updated: UserProfile = {
+      ...profile,
+      coins: newCoins,
+      updatedAt: nowStr
+    };
+
+    setProfile(updated);
+
+    if (isGuest) {
+      localStorage.setItem("arabic_master_guest_profile", JSON.stringify(updated));
+    } else if (user) {
+      try {
+        const userRef = doc(db, "users", user.uid);
+        await updateDoc(userRef, {
+          coins: newCoins,
+          updatedAt: serverTimestamp()
+        });
+      } catch (err) {
+        console.error("Firestore coins update error:", err);
+      }
+    }
+  };
+
   // Complete a lesson safely (adds CompletedLessonId, awards XP, awards badges if required)
   const completeLesson = async (lessonId: string, moduleId: string, badgeIdToAward?: string) => {
     if (!profile) return;
@@ -323,6 +356,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const xpToAward = isCompleted ? 15 : 40; // 15 XP if already study, 40 XP for new!
     const newXp = profile.xp + xpToAward;
     const newLevel = Math.max(profile.level, Math.floor(newXp / 100) + 1);
+    
+    const coinsToAward = isCompleted ? 5 : 15; // 5 Coelhos/Coins if repeating, 15 if first time!
+    const newCoins = (profile.coins || 0) + coinsToAward;
 
     // Merge badges
     const badges = [...profile.badges];
@@ -355,6 +391,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       ...profile,
       xp: newXp,
       level: newLevel,
+      coins: newCoins,
       completedLessons,
       badges,
       streak: currentStreak,
@@ -372,6 +409,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         await updateDoc(userRef, {
           xp: newXp,
           level: newLevel,
+          coins: newCoins,
           completedLessons,
           badges,
           streak: currentStreak,
@@ -394,6 +432,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       continueAsGuest,
       logout,
       addXp,
+      addCoins,
       completeLesson,
       claimPremium,
       updateLocalProfileName,

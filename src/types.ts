@@ -4,6 +4,7 @@ export interface UserProfile {
   name: string;
   level: number;
   xp: number;
+  coins?: number; // Moedas do Arabic Master
   streak: number;
   lastActiveDate?: string; // YYYY-MM-DD
   completedLessons: string[]; // List of completed lesson IDs

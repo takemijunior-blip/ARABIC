@@ -71,13 +71,7 @@ export const LessonView: React.FC<LessonViewProps> = ({ lesson, badgeIdToAward, 
           window.speechSynthesis.cancel();
           const utterance = new SpeechSynthesisUtterance(text);
           utterance.lang = "ar-SA";
-          utterance.rate = 0.75;
-          
-          const voices = window.speechSynthesis.getVoices();
-          const arVoice = voices.find(v => v.lang.startsWith("ar"));
-          if (arVoice) {
-            utterance.voice = arVoice;
-          }
+          utterance.rate = 0.8;
           
           utterance.onend = () => {
             setPlayingText(null);
@@ -103,12 +97,7 @@ export const LessonView: React.FC<LessonViewProps> = ({ lesson, badgeIdToAward, 
           window.speechSynthesis.cancel();
           const utterance = new SpeechSynthesisUtterance(text);
           utterance.lang = "ar-SA";
-          utterance.rate = 0.75;
-          const voices = window.speechSynthesis.getVoices();
-          const arVoice = voices.find(v => v.lang.startsWith("ar"));
-          if (arVoice) {
-            utterance.voice = arVoice;
-          }
+          utterance.rate = 0.8;
           utterance.onend = () => {
             setPlayingText(null);
           };
