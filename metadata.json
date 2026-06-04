@@ -1,0 +1,6 @@
+{
+  "name": "Arabic Master",
+  "description": "Aprenda árabe de forma simples, interativa e dinâmica para falantes de português.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

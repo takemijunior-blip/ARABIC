@@ -1,0 +1,87 @@
+{
+  "entities": {
+    "user": {
+      "title": "User Profile",
+      "description": "Stores user gamification progress, stats, and completed lessons",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "description": "Email address of the user" },
+        "name": { "type": "string", "description": "Display name of the user" },
+        "level": { "type": "integer", "description": "Current overall learning level" },
+        "xp": { "type": "integer", "description": "Accumulated experience points" },
+        "streak": { "type": "integer", "description": "Daily learning streak in days" },
+        "lastActiveDate": { "type": "string", "description": "Last date of activity for streak evaluation (YYYY-MM-DD)" },
+        "completedLessons": { "type": "array", "description": "Array of completed lesson IDs" },
+        "badges": { "type": "array", "description": "Earned milestones/medals" },
+        "isAdmin": { "type": "boolean", "description": "Indicates administration privileges" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["email", "name", "level", "xp", "streak"]
+    },
+    "lesson": {
+      "title": "Lesson",
+      "description": "Represents an Arabic learning unit inside a module",
+      "type": "object",
+      "properties": {
+        "moduleId": { "type": "string", "description": "Associated module identifier" },
+        "title": { "type": "string", "description": "Lesson title or topic" },
+        "description": { "type": "string", "description": "Short description of the lesson" },
+        "order": { "type": "integer", "description": "Sort order inside the module" },
+        "portuguese": { "type": "string", "description": "Portuguese meaning" },
+        "arabic": { "type": "string", "description": "Arabic script" },
+        "pronunciation": { "type": "string", "description": "Pronunciation spelling" },
+        "phraseArabic": { "type": "string", "description": "Arabic phrase example" },
+        "phrasePronunciation": { "type": "string", "description": "Example phrase pronunciation" },
+        "phrasePortuguese": { "type": "string", "description": "Example phrase Portuguese meaning" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["moduleId", "title", "order", "portuguese", "arabic", "pronunciation"]
+    },
+    "exercise": {
+      "title": "Exercise",
+      "description": "Represents a single interactive practice item for a lesson",
+      "type": "object",
+      "properties": {
+        "lessonId": { "type": "string", "description": "Parent lesson identifier" },
+        "type": { "type": "string", "description": "Exercise type: multiple_choice, complete, translate, write, organize" },
+        "question": { "type": "string", "description": "Portuguese question prompt" },
+        "arabicContext": { "type": "string", "description": "Arabic text or word used in the exercise" },
+        "options": { "type": "array", "description": "Array of potential options / words for answers" },
+        "correctAnswer": { "type": "string", "description": "The exact correct answer" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["lessonId", "type", "question", "correctAnswer"]
+    },
+    "chat": {
+      "title": "Sheikh AI Chat",
+      "description": "A persistent chat history of user interactions with the virtual tutor",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "The target user UUID matches current logged in user" },
+        "messages": { "type": "array", "description": "Messages array containing Sender, Text, Timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "messages", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "user",
+      "description": "Individual user profiles and statistics"
+    },
+    "/lessons/{lessonId}": {
+      "schema": "lesson",
+      "description": "Customizable list of lessons of the curriculum managed by admins"
+    },
+    "/exercises/{exerciseId}": {
+      "schema": "exercise",
+      "description": "Interactive exercises belonging to lessons"
+    },
+    "/chats/{chatId}": {
+      "schema": "chat",
+      "description": "Sheikh AI interactive discussion histories"
+    }
+  }
+}
